@@ -90,7 +90,7 @@ export default function Header() {
           <div className="md:hidden">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="text-white"
+              className="text-white relative z-9999999 focus:outline-none"
               aria-label="Toggle Menu"
             >
               {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
@@ -99,39 +99,41 @@ export default function Header() {
 
           {/* Mobile Nav Menu */}
           {mobileMenuOpen && (
-            <div className="absolute top-full left-0 w-full bg-[#0a0f24] border-t border-[#63c1f9] z-40 px-6 py-4 md:hidden">
-              <div className="flex flex-col space-y-3 text-base text-white">
-                {navItems.map((item) =>
-                  item.dropdown ? (
-                    <div key={item.name} className="space-y-1">
-                      <span className="flex items-center gap-1">
-                        {item.name}
-                        <ChevronDown size={14} />
-                      </span>
-                      <div className="ml-4 text-sm space-y-1">
-                        <a href="#" className="block hover:text-[#63c1f9]">
-                          Option 1
-                        </a>
-                        <a href="#" className="block hover:text-[#63c1f9]">
-                          Option 2
-                        </a>
-                      </div>
-                    </div>
-                  ) : (
-                    <a
-                      key={item.name}
-                      href={item.href}
-                      className={`hover:text-[#63c1f9] transition ${
-                        item.name === 'Home' ? 'text-[#63c1f9]' : ''
-                      }`}
-                    >
-                      {item.name}
-                    </a>
-                  )
-                )}
-              </div>
-            </div>
-          )}
+  <div className="fixed inset-0 z-50 bg-[#0a0f24] text-white px-6 py-10 md:hidden overflow-y-auto">
+    <div className="flex flex-col items-center text-center space-y-6 text-2xl">
+  {navItems.map((item) =>
+    item.dropdown ? (
+      <div key={item.name} className="space-y-2">
+        <span className="flex items-center justify-center gap-1">
+          {item.name}
+          <ChevronDown size={16} />
+        </span>
+        <div className="space-y-1 text-sm">
+          <a href="#" className="block hover:text-[#63c1f9]">
+            Option 1
+          </a>
+          <a href="#" className="block hover:text-[#63c1f9]">
+            Option 2
+          </a>
+        </div>
+      </div>
+    ) : (
+      <a
+        key={item.name}
+        href={item.href}
+        className={`hover:text-[#63c1f9] transition ${
+          item.name === 'Home' ? 'text-[#63c1f9] font-semibold' : ''
+        }`}
+      >
+        {item.name}
+      </a>
+    )
+  )}
+</div>
+
+  </div>
+)}
+
         </div>
       </div>
     </header>

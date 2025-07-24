@@ -35,9 +35,9 @@ export default function HomePage() {
       <ExpertiseSlider />
       <TabbedSection />
       <TestimonialCarousel />
+      <Footer />
 
       </main>
-      <Footer />
     </>
   );
 }

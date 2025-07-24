@@ -53,8 +53,8 @@ export default function ScrollPinText() {
 
   return (
     <section ref={sectionRef} className="w-full h-screen">
-      <div className="w-[85%] h-full mx-auto flex items-center">
-        <div className="text-[6vw] md:text-[5.8vw] leading-snug flex flex-wrap font-sans font-bold">
+      <div className="w-[90%] md:w-[85%] h-full mx-auto flex items-center">
+        <div className="text-[11.4vw] md:text-[5.8vw] leading-snug flex flex-wrap font-sans font-bold">
         {lines.map((line, lineIndex) => (
   <div key={lineIndex} className="w-full flex flex-wrap">
     {line.split('').map((char, charIndex) => (

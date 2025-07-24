@@ -81,7 +81,7 @@ const Card = ({
 // Main Section
 const PartnerSupportSection = () => {
   return (
-    <section className="relative py-24 my-8">
+    <section className="relative py-10 md:py-24 md:my-8">
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] pointer-none z-[-1]">
         <Image
             src="/customer-support-bg.png"
@@ -100,56 +100,57 @@ const PartnerSupportSection = () => {
     <span className="h-px w-20 bg-gradient-to-r from-transparent via-white/30 to-transparent" />
   </div>
 
-  <h2 className="text-4xl font-medium bg-gradient-to-r from-white via-gray-300 to-white text-transparent bg-clip-text lg:text-5xl lg:max-w-3xl mx-auto">
-    <span className="block mb-4">Exceptional Support for Your</span> <span className="block">Success</span>
+  <h2 className="text-2xl md:text-4xl font-medium bg-gradient-to-r from-white via-gray-300 to-white text-transparent bg-clip-text lg:text-5xl lg:max-w-3xl mx-auto">
+    <span className="block md:mb-4">Exceptional Support for Your</span> <span className="block">Success</span>
   </h2>
 </div>
 
       {/* Grid Layout */}
-      <div className="max-w-5xl mx-auto grid grid-cols-12 grid-rows-4 gap-6">
-        {/* Top Left Card */}
-        <div className="col-span-4 row-span-2">
-          <Card
-            title="Optimize"
-            subtitle="customer journeys"
-            description="Streamlined transactions enhancing efficiency and customer satisfaction."
-            buttonLabel="Explore"
-            image="/customer-support-icon-1.png"
-            imagePosition="top"
-          />
-        </div>
+      <div className="w-[90%] md:max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 lg:grid-cols-12 gap-6">
+  {/* Top Left Card */}
+  <div className="col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-4 row-span-1">
+    <Card
+      title="Optimize"
+      subtitle="customer journeys"
+      description="Streamlined transactions enhancing efficiency and customer satisfaction."
+      buttonLabel="Explore"
+      image="/customer-support-icon-1.png"
+      imagePosition="top"
+    />
+  </div>
 
-        {/* Top Right Card */}
-        <div className="col-span-8 row-span-2">
-          <Card
-            title="Faster Processing Time"
-            description="Quick and efficient payment processing for a seamless user experience."
-            image="/customer-support-icon-2.png"
-            imagePosition="bottom"
-          />
-        </div>
+  {/* Top Right Card */}
+  <div className="col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-8 row-span-1">
+    <Card
+      title="Faster Processing Time"
+      description="Quick and efficient payment processing for a seamless user experience."
+      image="/customer-support-icon-2.png"
+      imagePosition="bottom"
+    />
+  </div>
 
-        {/* Bottom Left Card */}
-        <div className="col-span-8 row-span-2">
-          <Card
-            title="Flexible Solutions"
-            description="Customizable options to meet the unique needs of your business."
-            image="/customer-support-icon-3.png"
-            buttonLabel="Explore more"
-            imagePosition="top"
-          />
-        </div>
+  {/* Bottom Left Card */}
+  <div className="col-span-1 sm:col-span-2 md:col-span-4 lg:col-span-8 row-span-1">
+    <Card
+      title="Flexible Solutions"
+      description="Customizable options to meet the unique needs of your business."
+      image="/customer-support-icon-3.png"
+      buttonLabel="Explore more"
+      imagePosition="top"
+    />
+  </div>
 
-        {/* Bottom Right Card */}
-        <div className="col-span-4 row-span-2">
-          <Card
-            title="Effortless Integration"
-            description="Simple API integration with your existing systems and platforms."
-            image="/customer-support-icon-4.png"
-            imagePosition="bottom"
-          />
-        </div>
-      </div>
+  {/* Bottom Right Card */}
+  <div className="col-span-1 sm:col-span-2 md:col-span-2 lg:col-span-4 row-span-1">
+    <Card
+      title="Effortless Integration"
+      description="Simple API integration with your existing systems and platforms."
+      image="/customer-support-icon-4.png"
+      imagePosition="bottom"
+    />
+  </div>
+</div>
+
     </section>
   );
 };

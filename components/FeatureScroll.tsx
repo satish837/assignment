@@ -120,16 +120,16 @@ export default function FeatureScroll() {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7, ease: 'easeOut' }}
           viewport={{ once: true }}
-          className="relative space-y-6 pr-[5rem]"
+          className="relative space-y-6 md:pr-[5rem] order-2 md:order-1 "
         >
           <div className="inline-block animate-borderGlow rounded-full p-[2px] bg-[length:200%_200%] bg-gradient-to-r from-[#234151] via-[#1a2a33] to-[#121516] ">
-            <div className="rounded-full bg-[#050b14] px-4 py-2 text-[#B5B0B7] text-base lg:text-[1rem] font-sans">
-              Payout Service Centric
+            <div className="rounded-full bg-[#050b14] px-4 py-2 text-[#B5B0B7] text-sm lg:text-[1rem] font-sans">
+              Payout Service Centric 
             </div>
           </div>
 
-          <h2 className="text-4xl sm:text-5xl font-medium font-sans leading-8 bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent pt-4 pb-8">
-            <span className="mb-4 block no-wrap">Streamlined for Payout Ease</span>
+          <h2 className="w-full text-2xl md:text-4xl sm:text-5xl font-medium font-sans md:leading-8 bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent md:pt-4 pb-8">
+            <span className="mb-4 inline md:block md:no-wrap">Streamlined for Payout Ease</span> 
             <span>and Efficiency</span>
           </h2>
 
@@ -160,7 +160,7 @@ export default function FeatureScroll() {
             {/* Scrollable Content */}
             <div
               ref={scrollContainerRef}
-              className="features-scroll-container relative overflow-y-auto max-h-[350px] pb-[100px] scroll-smooth"
+              className="features-scroll-container relative overflow-y-auto max-h-[350px] pb-[40px] md:pb-[100px] scroll-smooth"
             >
               {features.map((feature, idx) => (
                 <div
@@ -213,7 +213,7 @@ export default function FeatureScroll() {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7, ease: 'easeOut', delay: 0.2 }}
           viewport={{ once: true }}
-          className="relative flex items-center justify-center pl-[5rem]"
+          className="relative flex items-center justify-center md:pl-[5rem] order-1 md:order-2"
         >
           <Image
             src="/feature-scroll-hex-thumb.png"

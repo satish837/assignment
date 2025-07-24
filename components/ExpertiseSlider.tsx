@@ -83,8 +83,8 @@ const ExpertiseSlider = () => {
     <span className="h-px w-20 bg-gradient-to-r from-transparent via-white/30 to-transparent" />
   </div>
 
-  <h2 className="text-4xl font-medium bg-gradient-to-r from-white via-gray-300 to-white text-transparent bg-clip-text lg:text-5xl lg:max-w-3xl mx-auto">
-    <span className="block mb-4">Redefining Payment</span> <span className="block pb-2">Processing for You</span>
+  <h2 className="text-2xl md:text-4xl font-medium bg-gradient-to-r from-white via-gray-300 to-white text-transparent bg-clip-text lg:text-5xl lg:max-w-3xl mx-auto">
+    <span className="block md:mb-4">Redefining Payment</span> <span className="block pb-2">Processing for You</span>
   </h2>
 </div>
 

@@ -73,10 +73,10 @@ export default function TestimonialCarousel() {
   }, [flkty]);
 
   return (
-    <section className="relative w-full text-white overflow-hidden">
+    <section className="relative w-full text-white overflow-hidden my-20 md:my-0">
       
       <div className="w-full relative">
-      <div className="w-full">
+      <div className="w-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
         <Image
                       src="/testimonial-section-bg.png"
                       alt="testimonial background"
@@ -87,7 +87,7 @@ export default function TestimonialCarousel() {
                     />
       </div>
 
-      <div className="w-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+      <div className="w-full md:absolute md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2">
       <div className="text-center mb-12">
         
         <div className="inline-block animate-borderGlow rounded-full p-[2px] bg-[length:200%_200%] bg-gradient-to-r from-[#234151] via-[#1a2a33] to-[#121516] mb-4">
@@ -99,8 +99,8 @@ export default function TestimonialCarousel() {
         {/* Title */}
         <div className="text-center mb-16 space-y-4">
 
-  <h2 className="text-4xl font-medium bg-gradient-to-r from-white via-gray-300 to-white text-transparent bg-clip-text lg:text-5xl lg:max-w-3xl mx-auto">
-    <span className="block mb-4">Trusted by  </span> <span className="block">Businesses Like Yours</span>
+  <h2 className="text-2xl md:text-4xl font-medium bg-gradient-to-r from-white via-gray-300 to-white text-transparent bg-clip-text lg:text-5xl lg:max-w-3xl mx-auto">
+    <span className="block md:mb-4">Trusted by  </span> <span className="block">Businesses Like Yours</span>
   </h2>
 </div>
       </div>

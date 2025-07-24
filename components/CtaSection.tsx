@@ -53,13 +53,13 @@ const CtaSection = () => {
       <div className="relative z-10 container mx-auto w-[85%] flex flex-col lg:flex-row items-center justify-between">
         {/* Text: animate from left */}
         <motion.h2
-          className="text-4xl lg:text-5xl font-semibold text-neutral-200 text-center lg:text-left max-w-2xl"
+          className="text-2xl lg:text-5xl font-semibold text-neutral-200 text-center lg:text-left max-w-2xl"
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, ease: 'easeOut' }}
           viewport={{ once: true }}
         >
-          <span className="block mb-6">Let’s build the</span>
+          <span className="block md:mb-6">Let’s build the</span>
           <span className="block">future of finance together</span>
         </motion.h2>
 
@@ -71,7 +71,7 @@ const CtaSection = () => {
           viewport={{ once: true }}
         >
           <Link href="/signup">
-            <button className="relative inline-block p-px leading-6 text-white no-underline bg-gray-800 shadow-2xl cursor-pointer group rounded-xl hover:shadow-[#2a5268] mr-[8rem]">
+            <button className="relative inline-block p-px leading-6 text-white no-underline bg-gray-800 shadow-2xl cursor-pointer group rounded-xl hover:shadow-[#2a5268] mt-20 md:mt-0 md:mr-[8rem]">
               <span className="absolute inset-0 overflow-hidden rounded-xl">
                 <span className="absolute inset-0 rounded-xl bg-[radial-gradient(75%_100%_at_50%_0%,rgba(41,57,117,1)_10%,rgba(32,26,76,1)_75%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
               </span>
