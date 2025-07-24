@@ -10,8 +10,13 @@ import PaymentsFeature from '../components/PaymentsFeature';
 import PaymentsTabs from '../components/TabbedSection';
 import ScrollPinText from '../components/ScrollPinText';
 import TabbedSection from '../components/TabbedSection';
-import TestimonialCarousel from '../components/TestimonialCarousel';
 import Footer from '../components/ Footer';
+import dynamic from 'next/dynamic';
+
+const TestimonialCarousel = dynamic(() => import('../components/TestimonialCarousel'), {
+  ssr: false,
+});
+
 
 
 export default function HomePage() {
