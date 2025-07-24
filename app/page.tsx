@@ -6,9 +6,7 @@ import HeadPattern from '../components/HeadPattern';
 import Hero from '../components/Hero';
 import HeroVideoText from '../components/HeroVideoText';
 import PartnerSupportSection from '../components/PartnerSupportSection';
-import PaymentCarousel from '../components/PaymentCarousel';
 import PaymentsFeature from '../components/PaymentsFeature';
-import PayoutFeatures from '../components/PayoutFeatures';
 import ScrollPinText from '../components/ScrollPinText';
 
 
