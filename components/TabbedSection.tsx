@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
@@ -65,8 +65,18 @@ const tabs = [
 
 export default function TabbedSection() {
   const [activeTab, setActiveTab] = useState("payments");
-
   const current = tabs.find((tab) => tab.id === activeTab);
+
+  // CTA Sound Ref
+  const ctaSoundRef = useRef<HTMLAudioElement | null>(null);
+
+  const handleCTAClick = () => {
+    if (!ctaSoundRef.current) {
+      ctaSoundRef.current = new Audio("/click-sound.wav");
+    }
+    ctaSoundRef.current.currentTime = 0;
+    ctaSoundRef.current.play();
+  };
 
   return (
     <section className="text-white py-14">
@@ -78,7 +88,6 @@ export default function TabbedSection() {
             <p className="text-sm text-gray-400 uppercase tracking-widest">Enhancing payments</p>
             <span className="h-px w-20 bg-gradient-to-r from-transparent via-white/30 to-transparent" />
           </div>
-
           <h2 className="text-2xl font-medium bg-gradient-to-r from-white via-gray-300 to-white text-transparent bg-clip-text lg:text-5xl lg:max-w-3xl mx-auto">
             <span className="block md:mb-4">Powering Payments Across</span>
             <span className="block">Industries</span>
@@ -87,8 +96,7 @@ export default function TabbedSection() {
 
         {/* Container with background */}
         <div className="w-full rounded-2xl p-4 bg-[url('/tab-bg.jpg')] bg-cover bg-right bg-no-repeat">
-
-          {/* Tab Buttons */}
+          {/* Tabs */}
           <div className="w-full md:w-[80%] mx-auto flex flex-col md:flex-row justify-center gap-2 md:gap-4 mb-8 border-2 border-[#182834] rounded-xl overflow-hidden p-2">
             {tabs.map((tab) => (
               <button
@@ -116,7 +124,7 @@ export default function TabbedSection() {
 
           {/* Tab Content */}
           <div className="w-full px-0 sm:px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-10">
-            {/* Text Content */}
+            {/* Text */}
             <div className="w-full md:w-1/2 text-center md:text-left">
               <h3 className="text-2xl md:text-4xl font-normal mt-6 mb-6">{current?.heading}</h3>
               <p className="text-gray-400 text-base md:text-lg mb-6">{current?.description}</p>
@@ -130,8 +138,11 @@ export default function TabbedSection() {
                 ))}
               </ul>
 
-              <Link href="/signup">
-                <button className="relative inline-block p-px leading-6 text-white no-underline bg-gray-800 shadow-2xl cursor-pointer group rounded-xl hover:shadow-[#2a5268] my-10">
+              <Link href="javascript:void(0)">
+                <button
+                  onClick={handleCTAClick}
+                  className="relative inline-block p-px leading-6 text-white no-underline bg-gray-800 shadow-2xl cursor-pointer group rounded-xl hover:shadow-[#2a5268] my-10"
+                >
                   <span className="absolute inset-0 overflow-hidden rounded-xl">
                     <span className="absolute inset-0 rounded-xl bg-[radial-gradient(75%_100%_at_50%_0%,rgba(41,57,117,1)_10%,rgba(32,26,76,1)_75%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                   </span>
@@ -144,7 +155,7 @@ export default function TabbedSection() {
               </Link>
             </div>
 
-            {/* Image Content */}
+            {/* Image */}
             <div className="w-full md:w-1/2 flex justify-center mt-2 md:mt-0">
               <div className="relative w-[280px] h-[150px] md:w-full md:h-auto">
                 <img
