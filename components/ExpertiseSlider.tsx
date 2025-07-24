@@ -1,67 +1,64 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
-import dynamic from 'next/dynamic';
 import Image from 'next/image';
-
-// Dynamically import Flickity (client-side only)
-const Flickity = dynamic(() => import('flickity'), {
-  ssr: false,
-});
+import type FlickityType from 'flickity';
+import 'flickity/css/flickity.css';
 
 const expertiseData = [
-    {
-        title: 'UPI Autopay',
-        desc: 'Automate your payments with UPI Autopay, ensuring timely transactions without manual effort.',
-        img: '/upi-autopay.png',
-      },
-      {
-        title: 'API Banking',
-        desc: 'Integrate financial services seamlessly into your applications with our robust API banking solutions.',
-        img: '/api-banking.png',
-      },
-      {
-        title: 'Payouts',
-        desc: 'Deliver payouts swiftly and securely, ensuring timely disbursement to employees, partners, or clients.',
-        img: '/payouts.png',
-      },
-      {
-        title: 'Bulk Payments',
-        desc: 'Process multiple payments at once, saving time and reducing errors with bulk payment options.',
-        img: '/bulk-payments.png',
-      },
-      {
-        title: 'UPI Autopay',
-        desc: 'Automate your payments with UPI Autopay, ensuring timely transactions without manual effort.',
-        img: '/upi-autopay.png',
-      },
-      {
-        title: 'API Banking',
-        desc: 'Integrate financial services seamlessly into your applications with our robust API banking solutions.',
-        img: '/api-banking.png',
-      },
-      {
-        title: 'Payouts',
-        desc: 'Deliver payouts swiftly and securely, ensuring timely disbursement to employees, partners, or clients.',
-        img: '/payouts.png',
-      },
-      {
-        title: 'Bulk Payments',
-        desc: 'Process multiple payments at once, saving time and reducing errors with bulk payment options.',
-        img: '/bulk-payments.png',
-      },
+  {
+    title: 'UPI Autopay',
+    desc: 'Automate your payments with UPI Autopay, ensuring timely transactions without manual effort.',
+    img: '/upi-autopay.png',
+  },
+  {
+    title: 'API Banking',
+    desc: 'Integrate financial services seamlessly into your applications with our robust API banking solutions.',
+    img: '/api-banking.png',
+  },
+  {
+    title: 'Payouts',
+    desc: 'Deliver payouts swiftly and securely, ensuring timely disbursement to employees, partners, or clients.',
+    img: '/payouts.png',
+  },
+  {
+    title: 'Bulk Payments',
+    desc: 'Process multiple payments at once, saving time and reducing errors with bulk payment options.',
+    img: '/bulk-payments.png',
+  },
+  {
+    title: 'UPI Autopay',
+    desc: 'Automate your payments with UPI Autopay, ensuring timely transactions without manual effort.',
+    img: '/upi-autopay.png',
+  },
+  {
+    title: 'API Banking',
+    desc: 'Integrate financial services seamlessly into your applications with our robust API banking solutions.',
+    img: '/api-banking.png',
+  },
+  {
+    title: 'Payouts',
+    desc: 'Deliver payouts swiftly and securely, ensuring timely disbursement to employees, partners, or clients.',
+    img: '/payouts.png',
+  },
+  {
+    title: 'Bulk Payments',
+    desc: 'Process multiple payments at once, saving time and reducing errors with bulk payment options.',
+    img: '/bulk-payments.png',
+  },
 ];
 
 const ExpertiseSlider = () => {
   const carouselRef = useRef<HTMLDivElement>(null);
-  const [flkty, setFlkty] = useState<any>(null);
+  const [flkty, setFlkty] = useState<FlickityType | null>(null);
 
   useEffect(() => {
-    let instance: any;
+    let instance: FlickityType | null = null;
+
     if (carouselRef.current && typeof window !== 'undefined') {
-      // Import Flickity only in the browser
       import('flickity').then((FlickityModule) => {
-        instance = new FlickityModule.default(carouselRef.current!, {
+        const Flickity = FlickityModule.default;
+        instance = new Flickity(carouselRef.current!, {
           contain: true,
           cellAlign: 'left',
           wrapAround: true,
@@ -70,7 +67,10 @@ const ExpertiseSlider = () => {
         setFlkty(instance);
       });
     }
-    return () => instance?.destroy();
+
+    return () => {
+      instance?.destroy();
+    };
   }, []);
 
   return (
@@ -78,12 +78,13 @@ const ExpertiseSlider = () => {
       <div className="text-center mb-12">
         <p className="text-sm text-gray-400">Our Expertise</p>
         <h2 className="text-3xl md:text-5xl font-semibold leading-tight">
-          <span className="text-white">Redefining Payment</span><br />
+          <span className="text-white">Redefining Payment</span>
+          <br />
           <span className="text-gray-400">Processing for You</span>
         </h2>
       </div>
-  
-      {/* Carousel Wrapper */}
+
+      {/* Carousel */}
       <div className="overflow-hidden">
         <div className="carousel" ref={carouselRef}>
           {expertiseData.map((item, index) => (
@@ -91,7 +92,6 @@ const ExpertiseSlider = () => {
               key={index}
               className="carousel-cell relative w-full lg:w-[22%] flex-shrink-0 mr-6"
             >
-              {/* Background */}
               <div className="w-full h-auto">
                 <Image
                   src="/carousel-bg.png"
@@ -102,8 +102,7 @@ const ExpertiseSlider = () => {
                   className="w-full h-auto"
                 />
               </div>
-  
-              {/* Overlay Content */}
+
               <div className="absolute w-[80%] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
                 <div className="mb-4">
                   <Image
@@ -124,8 +123,8 @@ const ExpertiseSlider = () => {
           ))}
         </div>
       </div>
-  
-      {/* Navigation Buttons */}
+
+      {/* Navigation */}
       <div className="mt-10 flex justify-center gap-6">
         <button
           onClick={() => flkty?.previous()}
@@ -142,7 +141,6 @@ const ExpertiseSlider = () => {
       </div>
     </section>
   );
-  
 };
 
 export default ExpertiseSlider;
