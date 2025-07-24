@@ -30,14 +30,14 @@ const features = [
 ];
 
 export default function PayoutScrollSection() {
-  const scrollRef = useRef<HTMLDivElement>(null);
+  const scrollRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      const items = gsap.utils.toArray('.feature-item');
+      const items = gsap.utils.toArray<HTMLElement>('.feature-item');
 
       items.forEach((el) => {
-        const heading = (el as HTMLElement).querySelector('.feature-title');
+        const heading = el.querySelector('.feature-title');
 
         ScrollTrigger.create({
           trigger: el,
@@ -47,7 +47,7 @@ export default function PayoutScrollSection() {
             targets: heading,
             className: 'text-white',
           },
-          scroller: scrollRef.current, // Important: scope to the scrollable container
+          scroller: scrollRef.current || undefined,
         });
       });
 
@@ -62,7 +62,7 @@ export default function PayoutScrollSection() {
             dot.style.top = `${self.progress * 100}%`;
           }
         },
-        scroller: scrollRef.current,
+        scroller: scrollRef.current || undefined,
       });
     }, scrollRef);
 
@@ -79,29 +79,29 @@ export default function PayoutScrollSection() {
 
         {/* Scrollable content */}
         <div className="w-full">
-        <h2 className="text-3xl md:text-4xl font-semibold text-white mb-12">
+          <h2 className="text-3xl md:text-4xl font-semibold text-white mb-12">
             Streamlined for Payout Ease and Efficiency
           </h2>
-          <div
-          ref={scrollRef}
-          className="h-1/2 overflow-y-scroll scroll-smooth pr-4 pl-6 space-y-12 border-l border-purple-700 scrollbar-thin scrollbar-thumb-purple-600"
-        >
-          
 
-          {features.map((f, i) => (
-            <div key={i} className="feature-item">
-              <h3 className="feature-title text-lg font-semibold text-gray-400 transition-colors duration-300">
-                {f.title}
-              </h3>
-              <p className="text-gray-500 mt-2">{f.desc}</p>
-            </div>
-          ))}
+          <div
+            ref={(el) => {
+              scrollRef.current = el;
+            }}
+            className="h-1/2 overflow-y-scroll scroll-smooth pr-4 pl-6 space-y-12 border-l border-purple-700 scrollbar-thin scrollbar-thumb-purple-600"
+          >
+            {features.map((f, i) => (
+              <div key={i} className="feature-item">
+                <h3 className="feature-title text-lg font-semibold text-gray-400 transition-colors duration-300">
+                  {f.title}
+                </h3>
+                <p className="text-gray-500 mt-2">{f.desc}</p>
+              </div>
+            ))}
+          </div>
         </div>
-        </div>
-        
       </div>
 
-      {/* Right side placeholder */}
+      {/* Right visual placeholder */}
       <div className="hidden md:flex w-1/2 justify-center items-center">
         <div className="text-purple-400 text-lg">[Right visual content here]</div>
       </div>
