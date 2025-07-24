@@ -7,7 +7,11 @@ import Hero from '../components/Hero';
 import HeroVideoText from '../components/HeroVideoText';
 import PartnerSupportSection from '../components/PartnerSupportSection';
 import PaymentsFeature from '../components/PaymentsFeature';
+import PaymentsTabs from '../components/TabbedSection';
 import ScrollPinText from '../components/ScrollPinText';
+import TabbedSection from '../components/TabbedSection';
+import TestimonialCarousel from '../components/TestimonialCarousel';
+import Footer from '../components/ Footer';
 
 
 export default function HomePage() {
@@ -24,8 +28,11 @@ export default function HomePage() {
       <CtaSection />
       <PartnerSupportSection />
       <ExpertiseSlider />
+      <TabbedSection />
+      <TestimonialCarousel />
 
       </main>
+      <Footer />
     </>
   );
 }

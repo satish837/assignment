@@ -63,6 +63,7 @@ const ExpertiseSlider = () => {
           cellAlign: 'left',
           wrapAround: true,
           pageDots: true,
+          prevNextButtons: false,
         });
         setFlkty(instance);
       });
@@ -75,14 +76,17 @@ const ExpertiseSlider = () => {
 
   return (
     <section className="bg-black text-white py-20 px-4 md:px-10">
-      <div className="text-center mb-12">
-        <p className="text-sm text-gray-400">Our Expertise</p>
-        <h2 className="text-3xl md:text-5xl font-semibold leading-tight">
-          <span className="text-white">Redefining Payment</span>
-          <br />
-          <span className="text-gray-400">Processing for You</span>
-        </h2>
-      </div>
+      <div className="text-center mb-16 space-y-4">
+  <div className="flex items-center justify-center gap-4">
+    <span className="h-px w-20 bg-gradient-to-r from-transparent via-white/30 to-transparent" />
+    <p className="text-sm text-gray-400 uppercase tracking-widest">Our Expertise</p>
+    <span className="h-px w-20 bg-gradient-to-r from-transparent via-white/30 to-transparent" />
+  </div>
+
+  <h2 className="text-4xl font-medium bg-gradient-to-r from-white via-gray-300 to-white text-transparent bg-clip-text lg:text-5xl lg:max-w-3xl mx-auto">
+    <span className="block mb-4">Redefining Payment</span> <span className="block pb-2">Processing for You</span>
+  </h2>
+</div>
 
       {/* Carousel */}
       <div className="overflow-hidden">
@@ -116,7 +120,7 @@ const ExpertiseSlider = () => {
                 <h3 className="text-xl font-semibold mb-2 text-left">{item.title}</h3>
                 <p className="text-sm text-gray-300 mb-4 text-left">{item.desc}</p>
                 <div className="mt-auto flex justify-end">
-                  <span className="text-violet-500 hover:underline text-xl">&rarr;</span>
+                  <span className="text-violet-500 mr-6 text-xl">&rarr;</span>
                 </div>
               </div>
             </div>
@@ -128,15 +132,21 @@ const ExpertiseSlider = () => {
       <div className="mt-10 flex justify-center gap-6">
         <button
           onClick={() => flkty?.previous()}
-          className="w-10 h-10 rounded-full border border-violet-500 text-violet-500 hover:bg-violet-500 hover:text-black transition duration-300"
+          className="w-10 h-10 rounded-full border border-violet-500 text-violet-500 hover:bg-violet-500 hover:text-black transition duration-300 flex items-center justify-center"
         >
-          &larr;
+          <svg width="9" height="14" viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M7.36693 1.21875C7.36693 1.21875 1.86476 5.27102 1.86475 6.72094C1.86474 8.17095 7.36693 12.2231 7.36693 12.2231" stroke="#BDA0FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
         </button>
         <button
           onClick={() => flkty?.next()}
-          className="w-10 h-10 rounded-full border border-violet-500 text-violet-500 hover:bg-violet-500 hover:text-black transition duration-300"
+          className="w-10 h-10 rounded-full border border-violet-500 text-violet-500 hover:bg-violet-500 hover:text-black transition duration-300 flex items-center justify-center"
         >
-          &rarr;
+          <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1.35474 1.77734C1.35474 1.77734 6.85692 5.82961 6.85693 7.27953C6.85694 8.72954 1.35474 12.7817 1.35474 12.7817" stroke="#BDA0FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
         </button>
       </div>
     </section>

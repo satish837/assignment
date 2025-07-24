@@ -21,3 +21,15 @@
 .flickity-page-dots .dot.is-selected { 
     background: #fff; 
 }
+
+  
+.testimonial-carousel .carousel-cell {
+    transition: transform 0.3s ease-in-out;
+    transform: scale(0.95);
+  }
+  
+.testimonial-carousel .carousel-cell.is-selected {
+    transform: scale(1.05);
+    z-index: 10;
+  }
+  
