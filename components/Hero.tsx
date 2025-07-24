@@ -3,10 +3,21 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { useRef } from 'react';
 
 export default function Hero() {
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  const handleClick = () => {
+    if (audioRef.current) {
+      audioRef.current.currentTime = 0;
+      audioRef.current.play();
+    }
+  };
   return (
     <section className="relative z-0 w-full min-h-screen text-white overflow-hidden mb-20 md:mb-0">
+            <audio ref={audioRef} src="/click-sound.wav" preload="auto" />
+
       <div className="mx-auto w-[90%] md:w-[85%] pt-10 md:pt-20 flex flex-col-reverse lg:flex-row justify-end items-center relative">
         {/* Left Side */}
         <motion.div
@@ -36,14 +47,17 @@ export default function Hero() {
             </p>
 
             <div className="flex flex-row items-start sm:items-center gap-4 sm:gap-0 sm:space-x-4">
-              <Link href="/signup">
-                <button className="relative inline-block p-px leading-6 text-white no-underline bg-gray-800 shadow-2xl cursor-posans group rounded-full hover:shadow-[#2a5268]">
+            <Link href="#">
+                <button
+                  onClick={handleClick}
+                  className="relative inline-block p-px leading-6 text-white no-underline bg-gray-800 shadow-2xl cursor-posans group rounded-full hover:shadow-[#2a5268]"
+                >
                   <span className="absolute inset-0 overflow-hidden rounded-full">
                     <span className="absolute inset-0 rounded-full bg-[radial-gradient(75%_100%_at_50%_0%,rgba(41,57,117,1)_10%,rgba(32,26,76,1)_75%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                   </span>
                   <div className="relative z-10 flex items-center px-4 md:px-6 py-3 rounded-full bg-gray-950/50 ring-1 ring-[white]/10 font-sans">
                     <span className="text-base">Reach Out</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-6 h-6" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-6 h-6">
                       <path fillRule="evenodd" d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z" clipRule="evenodd" />
                     </svg>
                   </div>
@@ -51,14 +65,17 @@ export default function Hero() {
                 </button>
               </Link>
 
-              <Link href="/signup" className="sm:ml-4">
-                <button className="relative inline-block p-px leading-6 text-white no-underline bg-gray-800 shadow-2xl cursor-posans group rounded-full hover:shadow-[#2a5268]">
+              <Link href="#" className="sm:ml-4">
+                <button
+                  onClick={handleClick}
+                  className="relative inline-block p-px leading-6 text-white no-underline bg-gray-800 shadow-2xl cursor-posans group rounded-full hover:shadow-[#2a5268]"
+                >
                   <span className="absolute inset-0 overflow-hidden rounded-full">
                     <span className="absolute inset-0 rounded-full bg-[radial-gradient(75%_100%_at_50%_0%,rgba(41,57,117,1)_10%,rgba(32,26,76,1)_75%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                   </span>
                   <div className="relative z-10 flex items-center px-4 md:px-6 py-3 rounded-full bg-gray-950/50 ring-1 ring-[white]/10 font-sans">
                     <span className="text-base">Get Started</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-6 h-6" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-6 h-6">
                       <path fillRule="evenodd" d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z" clipRule="evenodd" />
                     </svg>
                   </div>

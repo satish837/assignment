@@ -93,6 +93,14 @@ export default function FeatureScroll() {
     };
   }, []);
 
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+
+const handleClick = () => {
+  if (audioRef.current) {
+    audioRef.current.currentTime = 0;
+    audioRef.current.play();
+  }
+};
   return (
     <motion.section
       initial={{ opacity: 0, y: 50 }}
@@ -101,6 +109,8 @@ export default function FeatureScroll() {
       viewport={{ once: true, amount: 0.3 }}
       className="relative w-full text-white py-20 flex items-center justify-center overflow-hidden"
     >
+      <audio ref={audioRef} src="/click-sound.wav" preload="auto" />
+
       {/* Background */}
       <div className="w-[60%] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
         <Image
@@ -181,28 +191,32 @@ export default function FeatureScroll() {
 
           {/* CTA Button */}
           <div className="flex items-center justify-start">
-            <Link href="/signup">
-              <button className="relative inline-block p-px leading-6 text-white no-underline bg-gray-800 shadow-2xl cursor-posans group rounded-xl hover:shadow-[#2a5268]">
-                <span className="absolute inset-0 overflow-hidden rounded-xl">
-                  <span className="absolute inset-0 rounded-xl bg-[radial-gradient(75%_100%_at_50%_0%,rgba(41,57,117,1)_10%,rgba(32,26,76,1)_75%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-                </span>
-                <div className="relative z-10 flex items-center px-6 py-3 rounded-xl bg-gray-950/50 ring-1 ring-[white]/10 font-sans">
-                  <span className="text-base">Get Started</span>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    className="w-6 h-6 ml-2"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </div>
-                <span className="absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-emerald-400/0 via-gray-400/90 to-emerald-400/0 transition-opacity duration-500 group-hover:opacity-40" />
-              </button>
+            <Link href="javascript:void(0)">
+            <button
+  onClick={handleClick}
+  className="relative inline-block p-px leading-6 text-white no-underline bg-gray-800 shadow-2xl cursor-posans group rounded-xl hover:shadow-[#2a5268]"
+>
+  <span className="absolute inset-0 overflow-hidden rounded-xl">
+    <span className="absolute inset-0 rounded-xl bg-[radial-gradient(75%_100%_at_50%_0%,rgba(41,57,117,1)_10%,rgba(32,26,76,1)_75%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+  </span>
+  <div className="relative z-10 flex items-center px-6 py-3 rounded-xl bg-gray-950/50 ring-1 ring-[white]/10 font-sans">
+    <span className="text-base">Get Started</span>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="currentColor"
+      viewBox="0 0 20 20"
+      className="w-6 h-6 ml-2"
+    >
+      <path
+        fillRule="evenodd"
+        d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z"
+        clipRule="evenodd"
+      />
+    </svg>
+  </div>
+  <span className="absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-emerald-400/0 via-gray-400/90 to-emerald-400/0 transition-opacity duration-500 group-hover:opacity-40" />
+</button>
+
             </Link>
           </div>
         </motion.div>
