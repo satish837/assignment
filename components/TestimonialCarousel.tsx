@@ -76,7 +76,7 @@ export default function TestimonialCarousel() {
     <section className="relative w-full text-white overflow-hidden my-20 md:my-0">
       
       <div className="w-full relative">
-      <div className="w-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+      <div className="w-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 md:static md:translate-x-0 md:translate-y-0">
         <Image
                       src="/testimonial-section-bg.png"
                       alt="testimonial background"

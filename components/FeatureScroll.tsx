@@ -175,7 +175,9 @@ export default function FeatureScroll() {
               {features.map((feature, idx) => (
                 <div
                   key={idx}
-                  ref={(el) => (itemRefs.current[idx] = el)}
+                  ref={(el) => {
+                    itemRefs.current[idx] = el;
+                  }}
                   className="relative mb-10 last:mb-0"
                 >
                   <h3 className="text-white text-lg mb-2">{feature.title}</h3>
