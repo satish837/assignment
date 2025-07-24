@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import 'flickity/css/flickity.css';
+
+.glow {
+    text-shadow: 0 0 10px rgba(147, 51, 234, 0.8); /* purple-600 glow */
+}
+.features-scroll-container::-webkit-scrollbar {
+    display: none;
+}
+.carousel-cell { 
+    outline: none; 
+}
+.flickity-page-dots { 
+    bottom: -30px; 
+}
+.flickity-page-dots .dot {
+    height: 8px; width: 8px; background: #444;
+}
+.flickity-page-dots .dot.is-selected { 
+    background: #fff; 
+}
