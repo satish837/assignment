@@ -111,7 +111,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7 }}
-            className=" absolute top-[70%] left-5 md:top-[40%] left-[30%] px-3 py-1 rounded-lg text-base md:text-lg text-white bg-white/10 border border-white/20 backdrop-blur-md shadow-sm"
+            className=" absolute top-[70%] left-5 md:top-[40%] md:left-[30%] px-3 py-1 rounded-lg text-base md:text-lg text-white bg-white/10 border border-white/20 backdrop-blur-md shadow-sm"
           >
             Payout process
           </motion.div>
